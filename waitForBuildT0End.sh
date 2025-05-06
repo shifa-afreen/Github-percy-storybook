@@ -4,7 +4,7 @@
 PERCY_BUILD_ID="$PERCY_BUILD_ID"
 echo "Using PERCY_BUILD_ID: $PERCY_BUILD_ID"
 
-API_URL='https://percy.io/api/v1/builds/${PERCY_BUILD_ID}'
+API_URL="https://percy.io/api/v1/builds/${PERCY_BUILD_ID}"
 echo "Using Percy API URL: $API_URL"
 
 # !! Replace 'xxx' with your actual Authorization token !!
