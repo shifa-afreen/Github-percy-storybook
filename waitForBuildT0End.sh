@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Configuration ---
-API_URL='https://percy.io/api/v1/builds/40232012'
+API_URL='https://percy.io/api/v1/builds/"$PERCY_BUILD_ID"'
 # !! Replace 'xxx' with your actual Authorization token !!
 AUTH_TOKEN="$PERCY_TOKEN"
 echo "Token : $PERCY_TOKEN"
