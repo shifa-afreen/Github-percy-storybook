@@ -36,3 +36,10 @@ jobs:
         run: npm test
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - name: Make script executable
+        run: chmod +x ./waitForBuildTOEnd.sh
+
+      - name: Execute the script file
+        run: ./waitForBuildTOEnd.sh
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }} 
