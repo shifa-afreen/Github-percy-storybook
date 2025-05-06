@@ -33,7 +33,17 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run tests
-        run: npm test
+        #run: npm test
+        run: |
+          BUILD_ID=$(npx percy storybook:start | grep https:\/\/percy.io\/.*\/builds | awk -F "/" '{print $NF}')
+          # Check if an ID was found and set the environment variable
+          if [ -n "$BUILD_ID" ]; then
+            echo "Successfully extracted Percy Build ID: $BUILD_ID"
+            # Set the environment variable PERCY_BUILD_ID for subsequent steps
+            echo "PERCY_BUILD_ID=$BUILD_ID" >> $GITHUB_ENV
+          else
+            echo "Error: Could not extract Percy Build ID from Percy command output."            
+          fi
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: List files in current directory
@@ -45,3 +55,4 @@ jobs:
         run: ./waitForBuildT0End.sh
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }} 
+          PERCY_BUILD_ID: ${{ env.PERCY_BUILD_ID }}
