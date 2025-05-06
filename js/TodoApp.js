@@ -55,7 +55,7 @@ export default function TodoApp({
         <input
           autoFocus={true}
           className="new-todo"
-          placeholder="What needs to be done?"
+          placeholder="Anything needs to be done?"
           value={newTodo}
           onChange={e => {
             setNewTodo(e.target.value);
