@@ -39,9 +39,9 @@ jobs:
       - name: List files in current directory
         run: ls -al    
       - name: Make script executable
-        run: chmod +x ./waitForBuildTOEnd.sh
+        run: chmod +x ./waitForBuildT0End.sh
 
       - name: Execute the script file
-        run: ./waitForBuildTOEnd.sh
+        run: ./waitForBuildT0End.sh
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }} 
